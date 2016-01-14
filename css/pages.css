@@ -1,0 +1,221 @@
+/* Main */
+
+.col-1 {
+    display: block; 
+}
+
+.col-1 div {
+   padding-left: 10%; 
+}
+
+/* My profile */
+
+.col-2 {
+    float: left;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    
+}
+
+.col-2 div {
+    width: 50%;
+    vertical-align: top;
+    display: inline-block;
+}
+
+#playerpic {
+    text-align: center;
+    height: 100%;
+    width: 40%;
+}
+
+
+
+#playerstats {
+    width: 60%;
+    height: 100%;   
+}
+
+#playerstats h2 {
+    color: #e0e0d1;
+    padding: 2%;
+    text-align: center;
+    max-width: 45%;
+    
+    
+}
+
+#playerstats ul {
+    max-width: 70%;
+}
+
+#playerstats li, {
+    display: block;
+    min-width: 100%;
+    margin-bottom: 2%;
+    
+}
+
+#playerstats p, #playerstats label{
+    font-weight: 700;
+    padding: 2%;
+    min-width: 50%;
+    display: inline-block;
+    text-align: left;
+}
+
+/* Searches */
+
+#searchbar{
+    padding-left: 10%;
+}
+
+#searchbar input{
+    padding:7px;
+    font-size: medium;
+}
+
+#searchresults {
+    padding-top: 3%;
+    padding-left: 10%;  
+}
+
+.searchresult {
+    margin: 1%;
+    padding: 1%;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.searchresult h3 {
+    text-align: center;
+    padding: 5px;
+    border-radius: 25px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b3dced+0,29b8e5+100,bce0ee+100,29b8e5+100 */
+   background: #b3dced; /* Old browsers */
+   background: -moz-linear-gradient(left,  #b3dced 0%, #29b8e5 100%, #bce0ee 100%, #29b8e5 100%); /* FF3.6-15 */
+   background: -webkit-linear-gradient(left,  #b3dced 0%,#29b8e5 100%,#bce0ee 100%,#29b8e5 100%); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(to right,  #b3dced 0%,#29b8e5 100%,#bce0ee 100%,#29b8e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#29b8e5',GradientType=1 ); /* IE6-9 */
+}
+
+.searchresult label {
+    font-weight: 600;
+    padding-right: 15px;
+}
+
+/* Counter */
+
+.buttonblock {
+    
+    max-width: 400px;
+    
+}
+
+.col-2 label {
+    display: inline-block;
+    width: 140px;
+    vertical-align: top;
+}
+
+.select {
+    min-width: 250px;
+}
+
+.select option {
+    padding-left: 25px;
+}
+
+#scorecard {
+    
+    border-style: outset;
+    border-width: 5px;
+    border-collapse:separate;
+    border-radius: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.firstrow th:first-child {
+    border-top-left-radius: 20px;
+     
+}
+
+.firstrow th:last-child{
+    border-top-right-radius: 20px;
+    
+}
+
+
+
+
+.lightcyan {
+    background: #b3ffff;
+}
+
+
+
+#scorecard th, #scorecard td {
+    vertical-align: middle;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+.firstcolumn {
+    
+}
+
+.firstcolumn div{
+    text-align: center;
+    width: 150px;
+    display: inline-block;
+    line-height: 40px;
+    min-height: 40px;
+}
+
+.scorefield {
+    min-width: 225px;
+}
+
+.scorenumbers{
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle !important;
+    line-height: 80px;
+    height: 100%;
+    width: 40% !important;
+}
+
+.scorecontrols {
+    display: inline-block;
+    font-size: 0;
+    height:80px;
+    width: 50%;
+}
+
+.plus {
+    display:inline-block;
+    background-image:url("../images/plus.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 45%;
+    margin-right: 3px;
+}
+
+.minus {
+    display:inline-block;
+    background-image:url("../images/minus.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 45%;
+    margin-right: 3px;
+}
+
+

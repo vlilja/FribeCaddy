@@ -1,0 +1,14 @@
+
+<div id=searchbar>
+    <div>
+    <label style="padding-right: 10px">Search for player:</label><input type="text" ng-model=searchString placeholder="enter playername here" size="40"/><br><br>
+    <button class="genbtn" ng-click="searchForPlayer()">Search</button>
+    </div>
+</div>
+<div id="searchresults">
+        <div class="searchresult" ng-repeat="n in players track by $index">
+            <h3>{{ n.name }}</h3><br>
+            <div><label>Average Score:</label><label>{{n.average}}</label></div>
+        </div>
+    </div>
+</div>

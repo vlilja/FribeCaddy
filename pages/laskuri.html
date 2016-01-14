@@ -1,0 +1,71 @@
+<div>
+    <span ng-hide=init>
+    <h2 style="padding-left: 10%">Initialize new game</h2>
+    <br>
+    </span>
+    <div class=col-2 ng-hide=init>
+    
+            <div style="padding-left: 10%">
+                <label>Pick the players:</label>
+                <select class = select ng-model=available size=5>
+                    <option ng-dblclick= addPlayer("add") ng-repeat="p in notpickedPlayers track by $index" value="{{ p }}">{{ p }}</option>   
+                 </select><br><br>            
+                <label>Pick a course:</label>
+                    <select class=select ng-model=pickedCourse>
+                        <option ng-repeat="c in courselist track by $index" value="{{ c }}">{{ c.nimi }}</option>   
+                    </select><br><br>
+                     <label>Picked players:</label>
+                <select class=select ng-model=picked size=5 >
+                    <option ng-dblclick= addPlayer("remove") ng-repeat="p in pickedPlayers track by $index" value="{{ p }}">{{ p }}</option>
+                </select>
+                
+            </div>
+        
+            <div class=buttonblock>
+                    <button class="genbtn" ng-click=addPlayer("add")>Add player to game</button><br>
+                    <button class="genbtn" ng-click=addPlayer("remove")>Remove player from game</button><br><br>
+                    <button class="genbtn blue" ng-click=startGame()>Start the game</button>
+            </div>
+            
+            <div>
+               
+            </div>
+            
+    </div>
+    
+    <div ng-show=init>
+        <h2 style="padding-left: 10%">Scorecard</h2><br>
+        <table id=scorecard ng-model=scores>
+            <tr class="lightcyan firstrow" >
+                <th class="firstcolumn" ><div><h3>{{ course.name }}</h3></div></th>
+                <th ng-repeat="players in scoreCards track by $index"><h3>{{ players.name }}</h3></th>
+            </tr>
+            <tr ng-repeat="courses in course.pars track by $index">
+                <td class="firstcolumn lightcyan"><div>Course {{ $index + 1 }} <br> Par {{courses}}</div></td>
+                <td class=scorefield ng-repeat="players in scoreCards track by $index">
+                    <div class=col-2>
+                        <div class=scorenumbers style="font-weight: 600">
+                            {{ players.scoreCard[$parent.$index] }} ( {{players.scoreCard[$parent.$index] - courses }} )
+                        </div>
+                        <div class=scorecontrols>
+                            <div class=plus ng-click="players.addScore(1, $parent.$index)"></div>
+                            <div class=minus ng-click="players.addScore(-1, $parent.$index)"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class=lightcyan style="border-bottom-left-radius: 20px"><span style="line-height: 40px; text-align: right;"><h3 style="padding-right: 15px;">Total: </h3></span></td>
+                <td style="text-align: center" ng-repeat="players in scoreCards track by $index"><h3>{{ players.sum }} ({{course.total}}) {{players.sum - course.total}}</h3></td>
+            </tr>
+            
+            
+        </table><br>
+        <button class=genbtn style="margin-left: 10%" ng-click="finishCourse()">Finish Course</button>
+        <div style="padding-left: 10%"  ng-show=finished>
+            <br>
+            <button style="background-color: #00FFFF" class=genbtn ng-click="saveGame()">Save Scores</button>
+        </div>
+    </div>
+</div>
+

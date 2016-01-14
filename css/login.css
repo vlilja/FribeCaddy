@@ -1,0 +1,10 @@
+.login {
+    width: 100%;
+    text-align: center;
+}
+
+.usercreation label{
+    display: inline-block;
+    min-width: 200px;
+    margin-right: 50px;
+}
