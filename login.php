@@ -8,6 +8,7 @@
         include ("includes/head.php"); 
         require_once('scripts/validateLogon.php'); ?>
 <body>
+<div class=pageWrap>
 <?php echo <<<END
 <header>
 		<nav>
@@ -40,7 +41,7 @@ END;
 
 
 
-
+</div>
 <?php include ("includes/footer.php"); ?>
 </body>
 </html>

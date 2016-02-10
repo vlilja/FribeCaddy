@@ -238,6 +238,7 @@ fribaApp.factory('playerStats', function(){
     playerStats.mostPlayedCourseAvg;
     playerStats.Avg;
     playerStats.totalThrows;
+    
     playerStats.setValues = function(name, mostPlayedCourse, mostPlayedCourseAvg, Avg, totalThrows){
         this.name = name;
         this.mostPlayedCourse = mostPlayedCourse;
@@ -246,12 +247,13 @@ fribaApp.factory('playerStats', function(){
         this.totalThrows = totalThrows;
         this.initialized = true;
     }
+    
     playerStats.setMostPlayedCourse = function(mstplyed){
         this.mostPlayedCourse = mstplyed;
         this.initialized = true;
     }
-    return playerStats;
     
+    return playerStats;
     
 });
   
@@ -276,6 +278,20 @@ fribaApp.factory('playerList', function(){
     }
     
     return players;
+    
+    
+});
+
+fribaApp.factory('mobileNavigation', function(){
+    
+    var navigate = {};
+    
+    navigate.go = function(path){
+        $location.path( path );
+    };
+    
+    return navigate;
+    
     
     
 });
@@ -421,7 +437,7 @@ fribaApp.controller('laskuriController', ['$scope', '$route', 'databaseService',
  //PELAAJAT   
  fribaApp.controller('pelaajatController', ['$scope', '$log', 'databaseService', 'playerList', function($scope, $log, databaseService, playerList) {
     
-   $scope.searchString = "";
+   $scope.searchString;
      
     $scope.searchForPlayer = function searchForPlayer(){
             playerList.resetList();
@@ -462,10 +478,20 @@ fribaApp.controller('laskuriController', ['$scope', '$route', 'databaseService',
 fribaApp.controller('radatController', ['$scope', '$log', 'databaseService', function($scope, $log, databaseService) {
 
     $scope.searchString = "";
+    
+    $scope.courses = [];
     $scope.searchForCourse = function searchForCourse(){
+            $scope.courses = [];
             databaseService.getCourses($scope.searchString).then(function(response) {
-                console.log(response.data);
-            $scope.courses = response.data;
+                console.log(response);
+            for(var i = 0; i < response.data.length; i++){
+                var course = {
+                    nimi:response.data[i].nimi,
+                    par:response.data[i].par,
+                    vayla_lkm:response.data[i].vayla_lkm
+                };
+                $scope.courses.push(course);
+            }
             });
     }
 

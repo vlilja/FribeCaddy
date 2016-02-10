@@ -20,10 +20,12 @@
 }
 
 .col-2 div {
-    width: 50%;
     vertical-align: top;
     display: inline-block;
+    float: left;
 }
+
+
 
 #playerpic {
     text-align: center;
@@ -66,6 +68,13 @@
     text-align: left;
 }
 
+#playerstats span {
+   width: 50%;
+}
+
+#playerstats span h2 {
+    margin: 0 auto;
+}
 /* Searches */
 
 #searchbar{
@@ -85,6 +94,7 @@
 .searchresult {
     margin: 1%;
     padding: 1%;
+    min-width: 225px;
     display: inline-block;
     border: 1px solid black;
     border-radius: 10px;
@@ -110,7 +120,7 @@
 /* Counter */
 
 .buttonblock {
-    
+    margin-left: 50px;
     max-width: 400px;
     
 }
@@ -119,6 +129,7 @@
     display: inline-block;
     width: 140px;
     vertical-align: top;
+    
 }
 
 .select {
@@ -186,7 +197,7 @@
     vertical-align: middle !important;
     line-height: 80px;
     height: 100%;
-    width: 40% !important;
+    width: 50% !important;
 }
 
 .scorecontrols {
@@ -196,26 +207,30 @@
     width: 50%;
 }
 
+
+
 .plus {
-    display:inline-block;
     background-image:url("../images/plus.png");
-    background-size:contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 45%;
-    margin-right: 3px;
 }
 
 .minus {
-    display:inline-block;
     background-image:url("../images/minus.png");
+}
+
+.minus, .plus {
+    display:inline-block;
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
     width: 45%;
-    margin-right: 3px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    
+    
 }
 
+.minus:active, .plus:active {
+    background-color: #b3ecff;
+}
 

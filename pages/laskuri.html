@@ -1,4 +1,4 @@
-<div>
+<div id=normal>
     <span ng-hide=init>
     <h2 style="padding-left: 10%">Initialize new game</h2>
     <br>
@@ -10,14 +10,14 @@
                 <select class = select ng-model=available size=5>
                     <option ng-dblclick= addPlayer("add") ng-repeat="p in notpickedPlayers track by $index" value="{{ p }}">{{ p }}</option>   
                  </select><br><br>            
-                <label>Pick a course:</label>
-                    <select class=select ng-model=pickedCourse>
-                        <option ng-repeat="c in courselist track by $index" value="{{ c }}">{{ c.nimi }}</option>   
-                    </select><br><br>
                      <label>Picked players:</label>
                 <select class=select ng-model=picked size=5 >
                     <option ng-dblclick= addPlayer("remove") ng-repeat="p in pickedPlayers track by $index" value="{{ p }}">{{ p }}</option>
-                </select>
+                </select><br><br>
+                <label>Pick a course:</label>
+                    <select class=select ng-model=pickedCourse>
+                        <option ng-repeat="c in courselist track by $index" value="{{ c }}">{{ c.nimi }}</option>   
+                    </select>
                 
             </div>
         

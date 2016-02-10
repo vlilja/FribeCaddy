@@ -12,6 +12,7 @@ session_start();
     
     ?>
     <body>
+    <div class=pageWrap>
     <?php include ("header.php"); ?>
         
         <div class="content" data-ng-view>
@@ -22,7 +23,9 @@ session_start();
         
         
         
-    <?php include ("footer.php"); ?>
+   
+    </div>
+     <?php include ("footer.php"); ?>
     </body>
     
 </html>

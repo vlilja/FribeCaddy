@@ -4,7 +4,7 @@
 $user = "";
 $query = 'SELECT username FROM users';
 
-if(isset($_GET['user'])){
+if(isset($_GET['user']) && $_GET['user'] !== "undefined"){
     $clean['user'] = strip_tags($_GET['user']);
     $query = $query . " WHERE username LIKE ? ORDER BY username";
     $user = $clean['user'] . "%";
