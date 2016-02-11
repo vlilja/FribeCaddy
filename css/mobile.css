@@ -121,5 +121,18 @@ nav {
 /* Counter */
 
 #normal {
-    display:none;
+    display:none;;
+}
+#mobile {
+    display: block;
+}
+
+.buttonblock {
+    margin-left: 0px;
+}
+
+.scoreBlock {
+   min-height: 100px;
+   border-bottom: 1px solid black;
+  
 }

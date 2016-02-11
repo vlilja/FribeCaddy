@@ -282,26 +282,10 @@ fribaApp.factory('playerList', function(){
     
 });
 
-fribaApp.factory('mobileNavigation', function(){
-    
-    var navigate = {};
-    
-    navigate.go = function(path){
-        $location.path( path );
-    };
-    
-    return navigate;
-    
-    
-    
-});
-
-
 
 //MAIN
 fribaApp.controller('mainController', ['$scope', function($scope) {
-    console.log("main");
-
+   
 
 }]);
 
@@ -385,7 +369,7 @@ fribaApp.controller('laskuriController', ['$scope', '$route', 'databaseService',
         }
             
         
-        
+       
         
         $scope.startGame = function (args) {
             if ($scope.pickedPlayers.length > 0 && $scope.pickedCourse != null) {
@@ -403,6 +387,7 @@ fribaApp.controller('laskuriController', ['$scope', '$route', 'databaseService',
                     for (var i = 0; i < response.data.length; i++) {
                         parArray.push(response.data[i].par);  
                     }
+                    console.log("id: " + course.id);
                     scoreCards.setCourse(course.id, course.nimi, parArray, course.par);
                     
                 });

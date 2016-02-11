@@ -9,7 +9,7 @@ if(isset($_POST["botti"])){
         $clean['password2'] =strip_tags($_POST['password2']);
         $clean['email'] =strip_tags($_POST['email']);
         
-        $sql = $db->prepare('SELECT username, password FROM users WHERE username = ?');
+        $sql = $db->prepare('SELECT username FROM users WHERE username = ?');
         $sql->bindParam(1, $clean['username'], PDO::PARAM_STR);
     
         $ok = $sql->execute();
@@ -24,12 +24,13 @@ if(isset($_POST["botti"])){
         
         }
         else if($clean['password'] == $clean['password2']){
+				$crypted = crypt($clean['password'], "suolaista123");
 				require_once ('includes/Validate.php');
 				$validate = new Validate();
 				if($validate->email($clean['email'],array("check_domain"=>true,"use_rfc822"=>true))){
                 $sql = $db->prepare('INSERT INTO users (username, password, email) VALUES (?, ?, ?)');
                 $sql->bindParam(1, $clean['username'], PDO::PARAM_STR);
-                $sql->bindParam(2, $clean['password'], PDO::PARAM_STR);
+                $sql->bindParam(2, $crypted, PDO::PARAM_STR);
                 $sql->bindParam(3, $clean['email'], PDO::PARAM_STR);
                 $ok = $sql->execute();
                 if(!$ok) {

@@ -11,10 +11,11 @@ if(isset($_GET['rata'])){
 }
 
 class course {
-    var $nimi;
-    var $par;
-    var $vayla_lkm; 
-}
+    public $rata_id;
+    public $nimi;
+    public $par;
+    public $vayla_lkm; 
+};
 
 require_once ("connect.php");
 
@@ -29,6 +30,7 @@ if($sql->rowCount() > 0){
     
     while($row = $sql->fetch(PDO::FETCH_OBJ)){
         $course = new course();
+        $course->rata_id = $row->rata_id;
         $course->nimi = $row->nimi;
         $course->par = $row->par;
         $course->vayla_lkm = $row->vayla_lkm;

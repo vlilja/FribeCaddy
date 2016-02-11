@@ -6,7 +6,7 @@ echo <<<END
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/pages.css" />
-    <link rel="stylesheet" href="css/mobile.css" media="only screen and (max-width: 600px)" />
+    <link rel="stylesheet" href="css/mobile.css" media="only screen and (max-width: 750px)" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> FribeCaddy </title>
     <link rel="shortcut icon" href="images/fribecaddylogo.png" type="image/x-icon" />
