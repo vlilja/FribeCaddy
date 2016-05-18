@@ -67,6 +67,7 @@
     </div>
 </div>
 <div id=mobile>
+    <div ng-hide=finished>
     <div style="text-align: center" ng-hide=init style="padding-left: 10%">
                 <label>Pick the players:</label><br>
                 <select class = select ng-model=available size=5>
@@ -89,15 +90,56 @@
                 <button ng-disabled="!checked" class="genbtn blue" ng-click=startGame()>Start the game</button>
     </div>
     <div ng-model=scores  ng-show=init>
-        <div style="border-bottom: 2px solid black">
-            <h2 style="padding-left:10px">{{ course.name }}</h2>
-        </div>
-        <div>
-            <div class=scoreBlock ng-repeat="players in scoreCards track by $index">
-                <h3 style="padding-left: 10px">{{ players.name }}</h3>
+        <div style="margin-bottom: 1em">
+            <div style="display: inline-block">
+                <h2 style="padding-left:10px">{{ course.name }}</h2> <h3 style="padding-left:10px">Hole: {{ mobile.selected+1 }} Par: {{ course.pars[mobile.selected] }}</h3>   
+            </div>
+            <div style="float: right; top:0; margin-right: 1em">
+                <div class=svgcontainer ng-click="mobile.changeCourse(-1)">
+                <svg height="50" width="50" >
+                 <polygon points="0,25 50,50 50,0" />
+                </svg>
+                </div>
+                <div  class=svgcontainer ng-click="mobile.changeCourse(1)">
+                <svg height="50" width="50">
+                 <polygon points="0,0 0,50 50,25" />
+                </svg>
+                </div>  
             </div>
         </div>
-        
+        <div style="border-top: 1px solid black">
+            <div class=scoreBlock ng-repeat="players in scoreCards track by $index">
+                <h3 style="padding-left: 10px">{{ players.name }}</h3>
+                <div style="height:100%; width: 100%">
+                    <div class=score>
+                         {{ players.scoreCard[mobile.selected] }} ({{players.scoreCard[mobile.selected] - course.pars[mobile.selected] }})
+                    </div>
+                    <div class=controls> 
+                        <div class=plus ng-click="players.addScore(1, mobile.selected)"></div>
+                        <div class=minus ng-click="players.addScore(-1, mobile.selected)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show=mobile.lastcourse>
+            <button class=genbtn style="margin-left: 10%" ng-click="finishCourse()">Finish Course</button>
+        </div>
     </div>
+    </div>
+    <div ng-show=finished>
+        <div style="background-color: #ccccb3">
+        <h2>Results</h2>
+        <div style="margin-top: 0.5em"><h3>Course: {{course.name }}   Par: {{course.total}} </h3></div>
+        </div>
+            <div ng-repeat="player in scoreCards | orderBy:'+sum' track by $index" style="margin-top: 1em; border-bottom:1px solid black">
+                <label style="font-size: 1.4em"> {{$index+1}}. </label><h3>{{player.name}}&nbspTotal:{{ player.sum }} ({{player.sum - course.total}})</h3>
+            </div>
+        <br>
+        <div style="text-align: center">
+            <button style="background-color: #00FFFF" class=genbtn ng-click="saveGame()">Save Scores</button>
+        </div>
+    </div> 
+    
+    
 </div>
 

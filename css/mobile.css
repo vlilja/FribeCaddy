@@ -136,3 +136,41 @@ nav {
    border-bottom: 1px solid black;
   
 }
+
+.score {
+    font-size: 2.0em;
+    text-align: center;
+    display: inline-block;
+    min-height: inherit;
+    height: 100%;
+    width: 45%;
+}
+
+.controls {
+    min-height: inherit;
+    display: inline-block;
+    height: 100%;
+    width: 45%;
+}
+
+.controls div {
+    display: inline-block;
+    min-height: 50px;
+    min-width: 50px;
+    height:100%;
+    width:30%;
+}
+
+.svgcontainer {
+    display: inline-block;
+}
+
+.svgcontainer polygon {
+    fill:#A5D9ED;
+    stroke:gray;
+    stroke-width:0.5;
+}
+
+.svgcontainer:active polygon {
+    fill:#b3ecff;
+}

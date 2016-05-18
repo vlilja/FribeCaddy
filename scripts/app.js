@@ -294,6 +294,7 @@ fribaApp.controller('laskuriController', ['$scope', '$route', 'databaseService',
     var scoreCards = scoreCardKeeper;
     $scope.init;
     $scope.scoreCards = scoreCards.scoreCards;
+   
     $scope.notpickedPlayers = [];
     $scope.pickedPlayers = [];
     $scope.course = scoreCards.course;
@@ -303,6 +304,29 @@ fribaApp.controller('laskuriController', ['$scope', '$route', 'databaseService',
         $scope.available;
         $scope.pickedCourse;
         $scope.finished = false;
+        
+      //mobile controls
+      $scope.mobile = {};
+    $scope.mobile.selected = 0;
+    $scope.mobile.lastcourse = false;
+    $scope.mobile.changeCourse = function(nxt) {
+       if (nxt == -1) {
+            if ($scope.mobile.selected > 0) {
+                $scope.mobile.selected--;
+            }
+            $scope.mobile.lastcourse = false;
+       }
+       if (nxt == 1) {
+          if ($scope.mobile.selected < $scope.course.pars.length-1) {
+             $scope.mobile.selected++;
+            }
+            if ($scope.mobile.selected == $scope.course.pars.length-1) {
+                $scope.mobile.lastcourse = true;
+            }
+       }
+    }
+     // END   
+        
     if (scoreCards.started == false) {
         $scope.init = false;
     }
@@ -338,7 +362,7 @@ fribaApp.controller('laskuriController', ['$scope', '$route', 'databaseService',
         $scope.addPlayer = function(a){
             
                 
-            if (a=="add" && $scope.pickedPlayers.length < 5 && $scope.available != "") {
+            if (a=="add" && $scope.pickedPlayers.length < 7 && $scope.available != "") {
                 
             var userIdx;
             $scope.pickedPlayers.push($scope.available);
@@ -387,7 +411,6 @@ fribaApp.controller('laskuriController', ['$scope', '$route', 'databaseService',
                     for (var i = 0; i < response.data.length; i++) {
                         parArray.push(response.data[i].par);  
                     }
-                    console.log("id: " + course.id);
                     scoreCards.setCourse(course.id, course.nimi, parArray, course.par);
                     
                 });
